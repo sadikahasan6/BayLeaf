@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./assets/favicon.svg" alt="Exasharp Logo" width="90">
   
-  # Byleaf
+  # Bayleaf
 </div>
 
 > ### **Note**
@@ -21,6 +21,9 @@ BayLeaf delivers a streamlined approach to business management, combining enterp
 # To build the server according to your OS
 zig build
 
+# small binary (without debug)
+zig build -Doptimize=ReleaseSmall
+
 # Start server (Run from the zig-out/bin/ folder)
 ./bayleaf 
 ```
@@ -28,3 +31,7 @@ zig build
 
 ## License
 Published under the MIT license. Built by [Joana Kelly](https://github.com/fullstackDev0404) & [Sadik Ahsan](https://github.com/sadikahasan6)
+<br> <br>
+<a href="https://github.com/sadikahasan6/BayLeaf/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sadikahasan6/BayLeaf" />
+</a>
