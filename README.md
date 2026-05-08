@@ -25,12 +25,14 @@ zig build
 zig build -Doptimize=ReleaseSmall
 
 # Start server (Run from the zig-out/bin/ folder)
-./bayleaf 
+./bayleaf
+
+# Visit 127.0.0.1:8080 from web browser.
 ```
 
 
 ## License
-Published under the MIT license. Built by [Joana Kelly](https://github.com/fullstackDev0404) & [Sadik Ahsan](https://github.com/sadikahasan6)
+Published under the MIT license. Built by [Sadik Ahsan](https://github.com/sadikahasan6)
 <br> <br>
 <a href="https://github.com/sadikahasan6/BayLeaf/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=sadikahasan6/BayLeaf" />
