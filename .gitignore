@@ -1,4 +1,5 @@
 # No need to change the binary file
 zig-out
+.zig-cache
 
 assets/old
