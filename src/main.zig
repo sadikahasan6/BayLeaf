@@ -13,6 +13,7 @@ pub fn main(init: std.process.Init) !void {
     var listener = try addr.listen(io, .{ .reuse_address = true });
     defer listener.deinit(io);
 
+    std.debug.print("Welcome to the BayLeaf server 🍂\nVersion:0.0\n\n", .{});
     std.log.info("Listening on http://{s}:{d}", .{ HOST, PORT });
 
     while (true) {

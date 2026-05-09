@@ -1,5 +1,6 @@
-# No need to change the binary file
+# Ignore Binary built and cache
 zig-out
 .zig-cache
 
+# This one is author's personal only
 assets/old
