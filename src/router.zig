@@ -15,6 +15,8 @@ pub fn route(req: *http.Server.Request, gpa: std.mem.Allocator) !void {
 
     if (std.mem.eql(u8, target, "/") or std.mem.eql(u8, target, "/index.html")) {
         try handlers.sendStatic(req, assets.index, "text/html; charset=utf-8");
+    } else if (std.mem.eql(u8, target, "/favicon.svg")) {
+        try handlers.sendStatic(req, assets.favicon, "image/svg+xml");
     } else if (std.mem.eql(u8, target, "/style.css")) {
         try handlers.sendStatic(req, assets.style, "text/css");
     } else if (std.mem.eql(u8, target, "/hero-bg.jpg")) {
