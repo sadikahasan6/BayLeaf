@@ -58,7 +58,7 @@ pub fn build(b: *std.Build) void {
     // If neither case applies to you, feel free to delete the declaration you
     // don't need and to put everything under a single module.
     const exe = b.addExecutable(.{
-        .name = "bayleaf",
+        .name = "BayLeaf",
         .root_module = b.createModule(.{
             // b.createModule defines a new module just like b.addModule but,
             // unlike b.addModule, it does not expose the module to consumers of
@@ -78,7 +78,7 @@ pub fn build(b: *std.Build) void {
                 // repeated because you are allowed to rename your imports, which
                 // can be extremely useful in case of collisions (which can happen
                 // importing modules from different packages).
-                .{ .name = "zig", .module = mod },
+                .{ .name = "bayleaf", .module = mod },
             },
         }),
     });
@@ -88,6 +88,15 @@ pub fn build(b: *std.Build) void {
     // step). By default the install prefix is `zig-out/` but can be overridden
     // by passing `--prefix` or `-p`.
     b.installArtifact(exe);
+
+    // Add this block here:
+    if (target.result.os.tag == .windows) {
+        // Note the .root_module here
+        exe.root_module.addWin32ResourceFile(.{
+            .file = b.path("resources.rc"),
+            .include_paths = &.{},
+        });
+    }
 
     // This creates a top level step. Top level steps have a name and can be
     // invoked by name when running `zig build` (e.g. `zig build run`).
@@ -153,4 +162,5 @@ pub fn build(b: *std.Build) void {
     //
     // Lastly, the Zig build system is relatively simple and self-contained,
     // and reading its source code will allow you to master it.
+
 }
