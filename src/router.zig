@@ -7,6 +7,7 @@ const assets = struct {
     const style = @embedFile("assets/style.css");
     const hero_bg = @embedFile("assets/hero-bg.jpg");
     const favicon = @embedFile("assets/favicon.svg");
+    const about = @embedFile("assets/about.html");
 };
 
 pub fn route(req: *http.Server.Request, gpa: std.mem.Allocator) !void {
@@ -21,6 +22,8 @@ pub fn route(req: *http.Server.Request, gpa: std.mem.Allocator) !void {
         try handlers.sendStatic(req, assets.style, "text/css");
     } else if (std.mem.eql(u8, target, "/hero-bg.jpg")) {
         try handlers.sendStatic(req, assets.hero_bg, "image/jpeg");
+    } else if (std.mem.eql(u8, target, "/about")) {
+        try handlers.sendStatic(req, assets.about, "text/html; charset=utf-8");
     } else if (std.mem.eql(u8, target, "/hello")) {
         try handlers.sendText(req, "Hello from Zig 0.16! 🦎\n");
     } else if (std.mem.eql(u8, target, "/json")) {
