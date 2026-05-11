@@ -324,8 +324,8 @@ u.links li>a.active {
 
 /* ========= BAYLEAF FOOTER — matches nav-header accent ========= */
 .bayleaf-footer {
-    background: linear-gradient(135deg, #e9967a, #c06c84);
-    color: white;
+    background: linear-gradient(135deg, #a3614b, #c06c84);
+    color: rgb(255, 217, 217);
     padding: 2.5rem 2rem 1.5rem;
     margin-top: auto;
     box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
@@ -392,14 +392,15 @@ u.links li>a.active {
 .link-group h4 {
     font-size: 1.05rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     letter-spacing: 0.3px;
     border-left: 3px solid rgba(255, 245, 220, 0.85);
-    padding-left: 10px;
+    padding-left: 12px;
 }
 
 .link-group ul {
     list-style: none;
+    padding: 16px;
 }
 
 .link-group li {
@@ -555,4 +556,84 @@ u.links li>a.active {
     .footer-social {
         text-align: center;
     }
+}
+
+:root {
+    --primary: #1e293b;    /* Slate 800 */
+    --accent: #2563eb;     /* Blue 600 */
+    --text-main: #334155;  /* Slate 700 */
+    --bg-light: #f8fafc;   /* Slate 50 */
+    --border: #e2e8f0;     /* Slate 200 */
+}
+
+.erp-features {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 48px;
+    font-weight: 700;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    background: var(--bg-light);
+    color: var(--accent);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.icon-box svg {
+    width: 100%;
+    height: 100%;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 640px) {
+    .section-title { font-size: 1.75rem; }
+    .feature-card { padding: 24px; }
 }
