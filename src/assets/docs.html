@@ -1,0 +1,59 @@
+<div class="docs-layout">
+        <aside class="docs-sidebar">
+            <div class="sidebar-group">
+                <h4>Getting Started</h4>
+                <a href="#introduction" class="sidebar-link active">Introduction</a>
+                <a href="#architecture" class="sidebar-link">System Architecture</a>
+            </div>
+            <div class="sidebar-group">
+                <h4>Core Modules</h4>
+                <a href="#finance" class="sidebar-link">Unified Finance</a>
+                <a href="#scm" class="sidebar-link">Supply Chain (SCM)</a>
+                <a href="#hcm" class="sidebar-link">Human Capital (HCM)</a>
+            </div>
+            <div class="sidebar-group">
+                <h4>Technical</h4>
+                <a href="#security" class="sidebar-link">Security & APIs</a>
+                <a href="#deployment" class="sidebar-link">Deployment</a>
+            </div>
+        </aside>
+
+        <main class="docs-content">
+            <section id="introduction">
+                <h1>Documentation</h1>
+                <p class="lead">Welcome to the BayLeaf ERP technical guide. This system is engineered for high-throughput business operations using a Zig-native high-performance core.</p>
+            </section>
+
+            <hr>
+
+            <section id="architecture">
+                <h2>System Architecture</h2>
+                <p>BayLeaf operates on a compiled binary layer. This ensures that financial calculations and ledger updates happen at the CPU level rather than through a virtual machine.</p>
+                <div class="code-block">
+                    <code>// Core Performance Metric: 0.4ms avg transaction latency</code>
+                </div>
+            </section>
+
+            <section id="finance">
+                <h2>Unified Finance</h2>
+                <p>The finance module ensures <strong>ACID compliance</strong> across all regional ledgers. Data is synchronized in real-time, eliminating the need for batch processing at the end of the day.</p>
+                <ul>
+                    <li>Automated Accounts Payable matching</li>
+                    <li>Immutable audit logs for compliance</li>
+                    <li>Real-time currency reconciliation</li>
+                </ul>
+            </section>
+
+            <section id="security">
+                <h2>Security & APIs</h2>
+                <p>All endpoints are protected by Zero-Trust architecture. Use the following header structure for API communication:</p>
+                <div class="code-block">
+<pre>
+{
+  "Authorization": "Bearer <JWT_TOKEN>",
+  "X-Module-ID": "FINANCE_CORE"
+}</pre>
+                </div>
+            </section>
+        </main>
+    </div>

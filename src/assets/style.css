@@ -19,12 +19,15 @@ body {
 .nav-header {
     background: linear-gradient(135deg, #e9967a, #c06c84);
     display: flex;
+    position: sticky;
+    top: 0;
     align-items: center;
     height: 60px;
     justify-content: space-between;
     padding: 0 40px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     color: white;
+    z-index: 99;
 }
 
 .logo {
@@ -625,4 +628,100 @@ u.links li>a.active {
 @media (max-width: 768px) {
     .mission-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-hero h1 { font-size: 2.2rem; }
+}
+
+/* Docs Specific Layout */
+.docs-body {
+    background: #ffffff;
+}
+
+.docs-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+}
+
+.version {
+    font-size: 0.7rem;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 2px 6px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.docs-layout {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Sidebar Styling */
+.docs-sidebar {
+    width: 260px;
+    padding: 40px 20px;
+    height: calc(100vh - 80px);
+    position: sticky;
+    top: 80px;
+    border-right: 1px solid #e2e8f0;
+    overflow-y: auto;
+}
+
+.sidebar-group h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+    margin-bottom: 12px;
+    margin-top: 24px;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 8px 0;
+    color: #475569;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.sidebar-link:hover, .sidebar-link.active {
+    color: #2563eb;
+    font-weight: 500;
+}
+
+/* Content Area */
+.docs-content {
+    flex: 1;
+    padding: 40px 80px;
+    max-width: 800px;
+}
+
+.docs-content section {
+    padding-bottom: 60px;
+}
+
+.docs-content h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.docs-content h2 { font-size: 1.8rem; margin-top: 2rem; color: #0f172a; }
+
+.lead {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+.code-block {
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    margin: 20px 0;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}
+
+@media (max-width: 768px) {
+    .docs-sidebar { display: none; }
+    .docs-content { padding: 40px 20px; }
 }

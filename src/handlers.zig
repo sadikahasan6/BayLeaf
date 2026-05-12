@@ -31,6 +31,26 @@ pub fn sendJson(req: *http.Server.Request, gpa: std.mem.Allocator) !void {
     });
 }
 
+pub fn sendWithLayout(
+    req: *http.Server.Request,
+    gpa: std.mem.Allocator,
+    layout: []const u8,   // <-- caller passes it in
+    body: []const u8,
+) !void {
+    var iter = std.mem.splitSequence(u8, layout, "<!-- CONTENT -->");
+    const head = iter.next() orelse layout;
+    const foot = iter.next() orelse "";
+
+    const full_page = try std.mem.concat(gpa, u8, &[_][]const u8{ head, body, foot });
+    defer gpa.free(full_page);
+
+    try req.respond(full_page, .{
+        .extra_headers = &.{
+            .{ .name = "content-type", .value = "text/html; charset=utf-8" },
+        },
+    });
+}
+
 pub fn send404(req: *http.Server.Request) !void {
     try req.respond("404 Not Found\n", .{
         .status = .not_found,
