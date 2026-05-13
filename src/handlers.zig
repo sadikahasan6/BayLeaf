@@ -2,6 +2,8 @@ const std = @import("std");
 const http = std.http;
 const main = @import("main.zig"); // To access PORT
 
+const NOT_FOUND_PAGE = @embedFile("assets/404/index.html");
+
 pub fn sendStatic(req: *http.Server.Request, body: []const u8, content_type: []const u8) !void {
     try req.respond(body, .{
         .extra_headers = &.{
@@ -52,10 +54,10 @@ pub fn sendWithLayout(
 }
 
 pub fn send404(req: *http.Server.Request) !void {
-    try req.respond("404 Not Found\n", .{
+    try req.respond(NOT_FOUND_PAGE, .{
         .status = .not_found,
         .extra_headers = &.{
-            .{ .name = "content-type", .value = "text/plain" },
+            .{ .name = "content-type", .value = "text/html; charset=utf-8" },
         },
     });
 }
