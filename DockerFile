@@ -1,1 +1,40 @@
+# --- Stage 1: Build ---
+FROM alpine:edge AS builder
 
+# Install Zig 0.16 and build dependencies
+RUN apk add --no-cache zig git musl-dev
+
+WORKDIR /app
+
+# 1. Copy dependency manifests first for better caching
+# (Even if build.zig.zon is empty, it's good practice)
+COPY build.zig ./
+# Uncomment the next line if you have a build.zig.zon file
+# COPY build.zig.zon ./
+
+# 2. Copy the source code and resources
+COPY src/ ./src/
+# Copy the Windows resource file even though we are building for Linux, 
+# it keeps the context consistent with your build.zig
+COPY resources.rc ./
+
+# 3. Build the application
+# We target Linux specifically to ensure it runs in the container
+RUN zig build -Doptimize=ReleaseFast -Dtarget=native-linux-musl
+
+# --- Stage 2: Runtime ---
+FROM alpine:latest
+
+# Install runtime libraries
+RUN apk add --no-cache libstdc++ mesa-gl
+
+WORKDIR /usr/local/bin/
+
+# 4. Copy the "BayLeaf" binary from the builder stage
+# Zig 0.16 outputs to zig-out/bin/ by default
+COPY --from=builder /app/zig-out/bin/BayLeaf .
+
+# Set execution permissions just in case
+RUN chmod +x BayLeaf
+
+ENTRYPOINT ["./BayLeaf"]
