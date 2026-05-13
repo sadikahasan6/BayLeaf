@@ -27,7 +27,7 @@ zig build -Doptimize=ReleaseSmall
 # Start server (Run from the zig-out/bin/ folder)
 ./bayleaf
 
-# Visit 127.0.0.1:8080 from web browser.
+# Visit 127.0.0.1:10000 from web browser.
 ```
 
 
