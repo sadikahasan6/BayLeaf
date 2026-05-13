@@ -290,7 +290,7 @@ u.links li>a.active {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .link-group {
@@ -457,6 +457,7 @@ u.links li>a.active {
 
     .footer-links {
         flex-direction: column;
+        justify-content: flex-start;
         align-items: center;
         gap: 1.4rem;
     }

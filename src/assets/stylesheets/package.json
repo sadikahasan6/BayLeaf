@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "sass": "^1.99.0"
+  },
+  "scripts": {
+    "dev": "sass --watch scss/input.scss:dashboard.css"
+  }
+}

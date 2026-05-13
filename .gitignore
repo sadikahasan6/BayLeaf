@@ -4,3 +4,7 @@ zig-out
 
 # This one is author's personal only
 assets/old
+
+# Stylers
+node_modules
+bun.lock
