@@ -1,5 +1,40 @@
-$bg-color: #F7FAFC;
+body {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
 
-body{
-    background-color: $bg-color;
+.dashboard {
+    background: linear-gradient(135deg, #e9967a, #c06c84);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.nav-header {
+    height: 56px;
+}
+
+.main {
+    height: calc(100vh - 56px);
+
+    display: flex;
+
+}
+
+aside {
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    width: 240px;
+
+}
+
+section.container {
+    flex: 1;
+    background-color: white;
+    height: calc(100vh - 56px - 12px );
+    overflow-y: auto;
+    margin-right: 12px;
 }
